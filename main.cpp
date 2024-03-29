@@ -7,8 +7,8 @@ int main()
     Color grey = {29, 29, 29, 255};
     const int WINDOWS_WIDTH = 1000;
     const int WINDOW_HEIGHT = 1000;
-    const int CELL_SIZE = 25;
-    int FPS = 25;
+    const int CELL_SIZE = 10;
+    int FPS = 15;
     int generation = 0;
 
     InitWindow(WINDOWS_WIDTH, WINDOW_HEIGHT, "Game of Life");
