@@ -5,6 +5,7 @@ class Simulation
 public:
 
     Simulation(int width, int height, int cellSize) : grid(width, height, cellSize), temporary_grid(width, height, cellSize), run(false) { }
+    Simulation& operator=(Simulation &other);
     void Draw();
     void setCellValue(int row, int column, int value);
     int countLiveNeighbours(int row, int column);
@@ -17,7 +18,6 @@ public:
     void toggleCell(int row, int column);
 
 private:
-
     Grid grid;
     Grid temporary_grid;
     bool run;

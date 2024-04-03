@@ -1,5 +1,14 @@
 #include "simulation.hpp"
 
+Simulation& Simulation::operator=(Simulation &other)
+{
+    this->grid = other.grid;
+    this->temporary_grid = other.temporary_grid;
+    this->run = other.run;
+
+    return *this;
+}
+
 void Simulation::Draw()
 {
     grid.Draw();

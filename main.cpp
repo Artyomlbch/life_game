@@ -7,7 +7,7 @@ int main()
     Color grey = {29, 29, 29, 255};
     const int WINDOWS_WIDTH = 1000;
     const int WINDOW_HEIGHT = 1000;
-    const int CELL_SIZE = 10;
+    int CELL_SIZE = 10;
     int FPS = 15;
     int generation = 0;
 
@@ -52,6 +52,47 @@ int main()
         else if (IsKeyPressed(KEY_C))
         {
             simulation.clear_grid();
+        }
+
+        if (!simulation.is_running())
+        {
+            if (IsKeyPressed(KEY_LEFT))
+            {
+                if (CELL_SIZE > 10)
+                {
+                    if ((CELL_SIZE - 10) != 30)
+                    {
+                        CELL_SIZE -= 10;
+                        Simulation newSim(WINDOWS_WIDTH, WINDOW_HEIGHT, CELL_SIZE);
+                        simulation = newSim;
+                    }
+                    else
+                    {
+                        CELL_SIZE -= 20;
+                        Simulation newSim(WINDOWS_WIDTH, WINDOW_HEIGHT, CELL_SIZE);
+                        simulation = newSim;
+                    }
+                }
+            }
+            else if (IsKeyPressed(KEY_RIGHT))
+            {  
+                if (CELL_SIZE < 40)
+                {   
+                    if ((CELL_SIZE + 10) != 30)
+                    {
+                        CELL_SIZE += 10;
+                        Simulation newSim(WINDOWS_WIDTH, WINDOW_HEIGHT, CELL_SIZE);
+
+                        simulation = newSim;
+                    }
+                    else
+                    {
+                        CELL_SIZE += 20;
+                        Simulation newSim(WINDOWS_WIDTH, WINDOW_HEIGHT, CELL_SIZE);
+                        simulation = newSim;
+                    }
+                }
+            }
         }
 
         simulation.Update();
